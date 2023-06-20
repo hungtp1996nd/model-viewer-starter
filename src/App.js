@@ -2,28 +2,27 @@ import "@google/model-viewer";
 
 import "./App.css";
 
-const Models = [
-  "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+// const Models = [
+//   "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
 
-  "https://modelviewer.dev/shared-assets/models/shishkebab.glb",
+//   "https://modelviewer.dev/shared-assets/models/shishkebab.glb",
 
-  "https://modelviewer.dev/shared-assets/models/RobotExpressive.glb",
-];
+//   "https://modelviewer.dev/shared-assets/models/RobotExpressive.glb",
+// ];
 
 function App() {
   return (
     <div class="wrap-model-view">
       <model-viewer
-        src={Models[0]}
-        alt="A 3D model of an astronaut"
+        alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
+        src="https://modelviewer.dev/shared-assets/models/NeilArmstrong.glb"
         ar
-        ar-modes="webxr scene-viewer quick-look"
-        environment-image="neutral"
+        environment-image="https://modelviewer.dev/shared-assets/environments/moon_1k.hdr"
+        poster="https://modelviewer.dev/shared-assets/models/NeilArmstrong.webp"
+        shadow-intensity="1"
         camera-controls
-        autoplay
-        class="model-view"
         touch-action="pan-y"
-      />
+      ></model-viewer>
     </div>
   );
 }
