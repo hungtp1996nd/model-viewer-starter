@@ -13,9 +13,10 @@ code {
 }
 
 .wrap-model-view {
-  height: 100vh;
-  width: 100vh;
-  margin: 0;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .model-view {
