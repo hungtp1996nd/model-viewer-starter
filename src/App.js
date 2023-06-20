@@ -1,5 +1,3 @@
-import "@google/model-viewer";
-
 import "./App.css";
 
 // const Models = [
