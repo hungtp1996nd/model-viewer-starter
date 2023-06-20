@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "@google/model-viewer";
+
+import "./App.css";
+
+const Models = [
+  "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
+
+  "https://modelviewer.dev/shared-assets/models/shishkebab.glb",
+
+  "https://modelviewer.dev/shared-assets/models/RobotExpressive.glb",
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div class="wrap-model-view">
+      <model-viewer
+        src={Models[0]}
+        alt="A 3D model of an astronaut"
+        ar
+        ar-modes="webxr scene-viewer quick-look"
+        environment-image="neutral"
+        camera-controls
+        autoplay
+        class="model-view"
+      />
     </div>
   );
 }
