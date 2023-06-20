@@ -13,16 +13,17 @@ const Models = [
 function App() {
   return (
     <div class="wrap-model-view">
-        <model-viewer
-        alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
+      <model-viewer
         src={Models[0]}
+        alt="A 3D model of an astronaut"
         ar
-        environment-image="shared-assets/environments/moon_1k.hdr"
-        poster="shared-assets/models/NeilArmstrong.webp"
-        shadow-intensity="1"
+        ar-modes="webxr scene-viewer quick-look"
+        environment-image="neutral"
         camera-controls
+        autoplay
+        class="model-view"
         touch-action="pan-y"
-      ></model-viewer>
+      />
     </div>
   );
 }
