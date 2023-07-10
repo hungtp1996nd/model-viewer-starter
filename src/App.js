@@ -13,7 +13,7 @@ function App() {
     <div class="wrap-model-view">
       <model-viewer
         alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
-        src="https://res.cloudinary.com/ddpevlrno/image/upload/v1688718271/apple_rasnqw.glb"
+        src="https://res.cloudinary.com/ddpevlrno/image/upload/v1688967615/bee_animation_xqtcmc.glb"
         ar
         environment-image="https://modelviewer.dev/shared-assets/environments/moon_1k.hdr"
         poster="https://modelviewer.dev/shared-assets/models/NeilArmstrong.webp"
