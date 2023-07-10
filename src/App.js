@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 
 // const Models = [
@@ -9,6 +10,10 @@ import "./App.css";
 // ];
 
 function App() {
+  const [isShowDetail, setIsShowDetail] = useState(false);
+  const showDetail = () => {
+    setIsShowDetail(true);
+  };
   return (
     <div class="wrap-model-view">
       <model-viewer
@@ -16,12 +21,23 @@ function App() {
         src="https://res.cloudinary.com/ddpevlrno/image/upload/v1688967615/bee_animation_xqtcmc.glb"
         ar
         environment-image="https://modelviewer.dev/shared-assets/environments/moon_1k.hdr"
-        poster="https://modelviewer.dev/shared-assets/models/NeilArmstrong.webp"
+        // poster="https://modelviewer.dev/shared-assets/models/NeilArmstrong.webp"
         shadow-intensity="1"
         camera-controls
         touch-action="pan-y"
         className="model-view"
-      ></model-viewer>
+        onClick={() => showDetail()}
+      >
+        <div
+          class="hotspot wrap-detail"
+          slot="hotspot-hand"
+          data-position="8 4 4"
+          style={{ display: isShowDetail ? "block" : "none" }}
+          // data-normal="0 0 0"
+        >
+          This is detail
+        </div>
+      </model-viewer>
     </div>
   );
 }
