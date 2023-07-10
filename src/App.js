@@ -31,7 +31,7 @@ function App() {
         <div
           class="hotspot wrap-detail"
           slot="hotspot-hand"
-          data-position="8 4 4"
+          data-position="5 4 4"
           style={{ display: isShowDetail ? "block" : "none" }}
           // data-normal="0 0 0"
         >
