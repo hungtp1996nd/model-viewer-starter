@@ -45,7 +45,6 @@ function App() {
         alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
         src="https://res.cloudinary.com/ddpevlrno/image/upload/v1689236827/bee_ani_jz5cx6.glb"
         ar
-        ar-modes="webxr scene-viewer quick-look"
         environment-image="https://modelviewer.dev/shared-assets/environments/moon_1k.hdr"
         shadow-intensity="1"
         camera-controls
