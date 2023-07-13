@@ -1,24 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
-// const Models = [
-//   "https://modelviewer.dev/shared-assets/models/Astronaut.glb",
-
-//   "https://modelviewer.dev/shared-assets/models/shishkebab.glb",
-
-//   "https://modelviewer.dev/shared-assets/models/RobotExpressive.glb",
-// ];
-
 function App() {
-  const [isShowDetail, setIsShowDetail] = useState(false);
-  const showDetail = () => {
-    setIsShowDetail(true);
-  };
+  const defaultHidePart = ["dsfdsfdf"];
+  const ruleDisplay = [
+    {
+      key: ["Bee_Back", "Bee_Body", "Bee_Eye", "Bee_Feet", "Bee_Wing_01",],
+      show: "dsfdsfdf"
+    }
+  ] 
+  useEffect(() => {
+    const modelViewer = document.querySelector("model-viewer#testModel");
+    modelViewer.addEventListener("load", () => {
+      const materials = modelViewer.model.materials;
+      console.log(materials);
+      materials.forEach((part) => {
+        if (defaultHidePart.includes(part.name)) {
+          part.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 0]);
+        }
+      })
+      const showHideFollowRule = (event) => {
+        const material = modelViewer.materialFromPoint(
+          event.clientX,
+          event.clientY
+        );
+        if (material != null) {
+          ruleDisplay.forEach((rule) => {
+            if (rule.key.includes(material.name)) {
+              let partNeedToShow = materials.find(part => part.name === rule.show);
+              partNeedToShow.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1, 1]);
+            }
+          })
+        }
+      };
+
+      modelViewer.addEventListener("click", showHideFollowRule);
+    });
+  }, []);
+
   return (
-    <div class="wrap-model-view">
+    <div className="wrap-model-view">
       <model-viewer
+        id="testModel"
         alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
-        src="https://res.cloudinary.com/ddpevlrno/image/upload/v1689127833/bee_obj_nh2gtu.glb"
+        src="https://res.cloudinary.com/ddpevlrno/image/upload/v1689236827/bee_ani_jz5cx6.glb"
         ar
         ar-modes="webxr scene-viewer quick-look"
         environment-image="https://modelviewer.dev/shared-assets/environments/moon_1k.hdr"
@@ -26,20 +51,9 @@ function App() {
         camera-controls
         touch-action="pan-y"
         className="model-view"
-        autoplay
-        style={{ width: '100%', height: '100vh' }}
-        // onClick={() => showDetail()}
-      >
-        <div
-          class="hotspot wrap-detail"
-          slot="hotspot-hand"
-          data-position="4 4 2"
-          style={{ display: isShowDetail ? "block" : "none" }}
-          // data-normal="0 0 0"
-        >
-          This is detail
-        </div>
-      </model-viewer>
+        camera-orbit="-80deg 80deg 100m"
+        style={{ width: "100%", height: "100vh" }}
+      ></model-viewer>
     </div>
   );
 }
