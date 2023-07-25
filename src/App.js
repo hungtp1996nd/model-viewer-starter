@@ -43,7 +43,7 @@ function App() {
       <model-viewer
         id="testModel"
         alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
-        src="https://res.cloudinary.com/ddpevlrno/image/upload/v1689780554/Mixer03_jlbacl.glb"
+        src="https://res.cloudinary.com/ddpevlrno/image/upload/v1690275617/bee_ani_230725_hc4b8o.glb"
         ar
         environment-image="neutral"
         shadow-intensity="1"
